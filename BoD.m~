@@ -1,5 +1,4 @@
 function BoD()
-clear; clc;
 diam = 0.235;
 beta = 0.1;
 t_max = 3.2 / beta;
@@ -51,12 +50,12 @@ rostic;
 
 while true
     elapsedTime = rostoc
-    eval(subs(V_left, t, elapsedTime));
-    eval(subs(V_right, t, elapsedTime));
+    eval(subs(V_left, t, elapsedTime))
+    eval(subs(V_right, t, elapsedTime))
     
-    runMsg.Data = [double(eval(subs(V_left, t, elapsedTime))), double(eval(subs(V_right, t, elapsedTime)))]; 
+    run.Msg = [double(eval(subs(V_left, t, elapsedTime))), double(eval(subs(V_right, t, elapsedTime)))] 
     send(pub, runMsg);
-    if elapsedTime >= t_max
+    if elapsedTime >= t_max; 
         break
     end
     disp(['Elapsed Time: ', num2str(elapsedTime)]);
