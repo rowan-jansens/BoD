@@ -1,7 +1,7 @@
 function BoD()
 clear; clc;
 diam = 0.235;
-beta = 0.1;
+beta = .2;
 t_max = 3.2 / beta;
 % Insert any setup code you want to run here
 
