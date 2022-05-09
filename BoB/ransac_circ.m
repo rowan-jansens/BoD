@@ -2,7 +2,7 @@ function [best_center, best_inlier_list, best_outlier_list] = ransac_circ(x, y, 
 
 
 
-sigma = 0.01;
+sigma = 0.02;
 % known_radius = 0.1329;
 
 best_inliers = 0;
@@ -13,7 +13,7 @@ outlier_list = [];
 best_inlier_list = [];
 best_outlier_list = [];
 %loop thought random points
-for i = 1:4000
+for i = 1:300
 
 %     %make data
 %     x_pts = [x(p1_idx(i)) ; x(p2_idx(i)) ; x(p3_idx(i))];
