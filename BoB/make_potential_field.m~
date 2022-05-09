@@ -1,7 +1,7 @@
 function [X, Y, potential] = make_potential_field(x, y, inliers, outliers)
 
-x_field = linspace(-1, 1, 21);
-y_field = linspace(-1, 1, 21);
+x_field = linspace(-1, 1, 20);
+y_field = linspace(-1, 1, 20);
 [X, Y] = meshgrid(x_field, y_field);
 
 
