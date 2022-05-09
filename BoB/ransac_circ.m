@@ -2,12 +2,8 @@ function [best_center, best_inlier_list, best_outlier_list] = ransac_circ(x, y, 
 
 
 
-n = 20;
 sigma = 0.02;
 % known_radius = 0.1329;
-inlier_list = zeros(1,n);
-center = zeros(n,2);
-radius = zeros(1,n);
 
 best_inliers = 0;
 best_center = [0 0];
