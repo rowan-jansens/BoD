@@ -35,18 +35,20 @@ yunit = known_radius * sin(th) + center(2);
 h = plot(xunit, yunit, 'linewidth', 2);
 scatter(inliers(:,1),inliers(:,2),10, "green", "filled")
 scatter(outliers(:,1), outliers(:,2), 10, "red", "filled")
-contour(X, Y, real(potential), 20)
-scatter(0,0,100, 's',  "filled")
+%contour(X, Y, real(potential),30)
+quiver(X, Y, dx, dy, 2, "color", [.3 0.7 .3])
+
+scatter(0,0,100, 'sb',  "filled")
 %quiver(0, 0, ascent_vec(1), ascent_vec(2), .01)
-%quiver(X, Y, dx, dy)
-axis([-3 3 -3 3])
+
+axis([-2 3 -3 1])
 hold off
 
 
-title('Gauntlet Potential Feild from Iinitial LIDAR Scan')
+title('Gauntlet Gradient Field from Iinitial LIDAR Scan')
 xlabel('X (m)')
 ylabel('Y (m)')
-legend('Best Fit Circle', 'Target', 'Obstacles','Contour','Neato')
+legend('Best Fit Circle', 'Target', 'Obstacles','\nablaF','Neato')
 
 %gradient_ascent(ascent_vec, position, heading, pub, msg);
 
