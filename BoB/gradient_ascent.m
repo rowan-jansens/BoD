@@ -4,7 +4,7 @@ function res = gradient_ascent(gradValue, position, heading, pub, msg)
 wheelBase = 0.235;              % meters
 % this is the scaling factor we apply to the gradient when calculating our
 % step size
-lambda = 0.001;
+lambda = 0.002;
 
 % setup symbolic expressions for the function and gradient
 
@@ -12,7 +12,7 @@ lambda = 0.001;
 % the problem description tells us to the robot starts at position 1, -1
 % with a heading aligned to the y-axis
 
-angularSpeed = 0.2; %.1 % radians / second (set higher than real to help with testing)
+angularSpeed = 0.1; %.1 % radians / second (set higher than real to help with testing)
 linearSpeed = 0.1; %.1 % meters / second
 
     crossProd = cross([heading; 0], [gradValue; 0]);

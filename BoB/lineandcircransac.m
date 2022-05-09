@@ -56,7 +56,7 @@ while no_circ
         %best_line_outliers
         x = best_line_outliers(:, 1);
         y = best_line_outliers(:, 2);
-        to_add_later = best_line_inliers;
+        to_add_later = [to_add_later; best_line_inliers];
         
     else
         best_center = circ_center;
