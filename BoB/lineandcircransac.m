@@ -2,7 +2,7 @@ function [best_center, best_inlier_list, best_outlier_list] = lineandcircransac(
 
 line_sigma = 0.001;
 no_circ = true;
-
+to_add_later = []
 while no_circ
     
     [circ_center, best_circ_inliers, best_circ_outliers] = ransac_circ(x,y,known_radius);
@@ -56,15 +56,19 @@ while no_circ
         %best_line_outliers
         x = best_line_outliers(:, 1);
         y = best_line_outliers(:, 2);
+        to_add_later = best_line_inliers;
+        
     else
         best_center = circ_center;
         best_inlier_list = best_circ_inliers;
         best_outlier_list = best_circ_outliers;
+        best_outlier_list = [best_outlier_list ; to_add_later];
         no_circ = false;
     end
     plot(best_line(:,1), best_line(:,2),'b', 'linewidth', 2)
     plot(best_line_inliers(:,1), best_line_inliers(:, 2), 'g.')
     plot(best_line_outliers(:,1), best_line_outliers(:, 2), 'r.')
-   
+    
+    
 end
 plot(best_center(1), best_center(2), 'mo')
