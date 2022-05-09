@@ -16,7 +16,7 @@ outlier_list = [];
 best_inlier_list = [];
 best_outlier_list = [];
 %loop thought random points
-for i = 1:2000
+for i = 1:300
 
 %     %make data
 %     x_pts = [x(p1_idx(i)) ; x(p2_idx(i)) ; x(p3_idx(i))];
