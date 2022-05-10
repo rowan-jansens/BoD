@@ -4,7 +4,7 @@ function res = gradient_ascent(gradValue, position, heading, pub, msg)
 wheelBase = 0.235;              % meters
 % this is the scaling factor we apply to the gradient when calculating our
 % step size
-lambda = 0.1;
+lambda = 0.003;
 
 % setup symbolic expressions for the function and gradient
 
@@ -20,19 +20,19 @@ linearSpeed = 0.1; %.1 % meters / second
     % if the z-component of the crossProd vector is negative that means we
     % should be turning clockwise and if it is positive we should turn
     % counterclockwise
-    turnDirection = sign(crossProd(3))
+    turnDirection = sign(crossProd(3));
 
     % as stated above, we can get the turn angle from the relationship
     % between the magnitude of the cross product and the angle between the
     % vectors
     %turnAngle = asin(crossProd / norm(gradValue))
-   turnAngle = acos(dot(heading, gradValue) / norm(gradValue))
+   turnAngle = acos(dot(heading, gradValue) / norm(gradValue));
 
     % this is how long in seconds to turn for
     turnTime = double(turnAngle) / angularSpeed;
     % note that we use the turnDirection here to negate the wheel speeds
     % when we should be turning clockwise instead of counterclockwise
-    msg.Data = [-turnDirection*angularSpeed*wheelBase/2,
+    msg.Data = [-turnDirection*angularSpeed*wheelBase/2;
 
     turnDirection*angularSpeed*wheelBase/2];
     send(pub, msg);

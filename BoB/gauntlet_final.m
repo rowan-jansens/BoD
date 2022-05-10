@@ -20,8 +20,11 @@ pause(2);
 known_radius = 0.25;
 figure(1)
 
+
+
 for i=1:1
     
+
 [x, y] = collect_scan();
 [center, inliers, outliers] = lineandcircransac(x, y, known_radius);
 [X, Y, potential] = make_potential_field(x, y, inliers, outliers);
@@ -42,23 +45,26 @@ h = plot(xunit, yunit, 'linewidth', 2);
 scatter(inliers(:,1),inliers(:,2),10, "green", "filled")
 scatter(outliers(:,1), outliers(:,2), 10, "red", "filled")
 contour(X, Y, real(potential),30)
-quiver(X, Y, dx, dy, 2, "color", [.3 0.7 .3])
+%quiver(X, Y, dx, dy, 2, "color", [.3 0.7 .3])
 
 scatter(0,0,100, 'sb',  "filled")
 quiver(0, 0, ascent_vec(1), ascent_vec(2), .01)
 
-axis([-2 3 -3 1])
+axis([-2 2 -2 2])
 
 
 
-title('Gauntlet Gradient Field from Iinitial LIDAR Scan')
+%title('Gauntlet Gradient Field from Iinitial LIDAR Scan')
 xlabel('X (m)')
 ylabel('Y (m)')
 %legend('Best Fit Circle', 'Target', 'Obstacles','\nablaF','Neato')
 
 
 plot(path(:,1), path(:,2), "k", 'linewidth', 2)
-%gradient_ascent(ascent_vec, position, heading, pub, msg);
+gradient_ascent(ascent_vec, position, heading, pub, msg);
+norm(center)
+
+
 
 hold off
 end
