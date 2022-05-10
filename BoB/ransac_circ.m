@@ -69,7 +69,6 @@ y_pts = [y(p1) ; y(p2) ;  y(p3)];
 end
 
 
-
 %t = linspace(0, 2*pi, 100)';
  %x1 = known_radius*cos(t) + best_center(1);
  %y1 = known_radius*sin(t) + best_center(2);

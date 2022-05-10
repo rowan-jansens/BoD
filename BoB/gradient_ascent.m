@@ -6,11 +6,6 @@ wheelBase = 0.235;              % meters
 % step size
 lambda = 0.003;
 
-% setup symbolic expressions for the function and gradient
-
-
-% the problem description tells us to the robot starts at position 1, -1
-% with a heading aligned to the y-axis
 
 angularSpeed = 0.1; %.1 % radians / second (set higher than real to help with testing)
 linearSpeed = 0.1; %.1 % meters / second
@@ -61,8 +56,6 @@ linearSpeed = 0.1; %.1 % meters / second
     msg.Data = [0,0];
     send(pub, msg);
     % update the position for the next iteration
-    %position = position + (gradValue*lambda/norm(gradValue))
-    position = position + (gradValue*lambda)
-    % if our step is too short, flag it so we break out of our loop
+    position = position + (gradValue*lambda/norm(gradValue))
 
 end
