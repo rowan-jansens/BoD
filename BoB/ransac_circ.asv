@@ -47,11 +47,7 @@ for i = 1:300
      inlier_list = [];
      outlier_list = [];
      for j = 1:length(x)
-         %calculate the distance between a point and the center of the
-         %random circle
         distance = sqrt((x(j) - center(i,1))^2 + (y(j) - center(i,2))^2);
-        %if the point is within sigma of the circle, add it to the inliers,
-        %else add it to the outliers
         if distance < (known_radius + sigma) && distance > (known_radius - sigma)
              inliers = inliers + 1;
              inlier_list(end+1,:) = [x(j) y(j)];
@@ -60,9 +56,7 @@ for i = 1:300
         end
         
      end
-      %if the number of inliers of the current random circle is greater
-      %than the number on the current best circle, replace the current best
-      %circle with the current random circle
+
       if inliers > best_inliers
           best_inliers = inliers;
           best_center = [-circle_params(1)/2 -circle_params(2)/2];
