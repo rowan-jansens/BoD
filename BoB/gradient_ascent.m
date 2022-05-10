@@ -4,7 +4,7 @@ function res = gradient_ascent(gradValue, position, heading, pub, msg)
 wheelBase = 0.235;              % meters
 % this is the scaling factor we apply to the gradient when calculating our
 % step size
-lambda = 0.002;
+lambda = 0.1;
 
 % setup symbolic expressions for the function and gradient
 

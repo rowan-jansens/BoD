@@ -1,10 +1,10 @@
 function [X, Y, potential] = make_potential_field(x, y, inliers, outliers)
 
-x_field = linspace(-3, 3, 61);
-y_field = linspace(-4, 3, 61);
+x_field = linspace(-4, 4, 81);
+y_field = linspace(-4, 4, 81);
 [X, Y] = meshgrid(x_field, y_field);
 
-inlier_scale = 2;
+inlier_scale = 8;
 outlier_scale = 0.2;
 
 

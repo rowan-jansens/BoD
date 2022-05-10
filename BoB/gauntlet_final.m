@@ -7,7 +7,7 @@ send(pub, msg);
 pause(2);
 
 %position = [0.6; -1.5];
-position = [0; 0];
+position = [0;0];
 heading = [1; 0];
 % put the Neato in the starting location
 placeNeato(position(1), position(2), heading(1), heading(2));
@@ -18,7 +18,7 @@ pause(2);
 
 
 known_radius = 0.25;
-figure()
+figure(1)
 
 for i=1:1
     
@@ -26,7 +26,13 @@ for i=1:1
 [center, inliers, outliers] = lineandcircransac(x, y, known_radius);
 [X, Y, potential] = make_potential_field(x, y, inliers, outliers);
 [dx, dy] = gradient(potential, 0.1);
-ascent_vec = [-1*dx(31,31); -1*dy(31,31)]
+
+
+path = predict_path(dx, dy, position, center, known_radius);
+
+
+center_idx = 41;
+ascent_vec = [-1*dx(center_idx,center_idx); -1*dy(center_idx,center_idx)]
 clf
 hold on
 th = 0:pi/50:2*pi;
@@ -35,24 +41,26 @@ yunit = known_radius * sin(th) + center(2);
 h = plot(xunit, yunit, 'linewidth', 2);
 scatter(inliers(:,1),inliers(:,2),10, "green", "filled")
 scatter(outliers(:,1), outliers(:,2), 10, "red", "filled")
-%contour(X, Y, real(potential),30)
+contour(X, Y, real(potential),30)
 quiver(X, Y, dx, dy, 2, "color", [.3 0.7 .3])
 
 scatter(0,0,100, 'sb',  "filled")
-%quiver(0, 0, ascent_vec(1), ascent_vec(2), .01)
+quiver(0, 0, ascent_vec(1), ascent_vec(2), .01)
 
 axis([-2 3 -3 1])
-hold off
+
 
 
 title('Gauntlet Gradient Field from Iinitial LIDAR Scan')
 xlabel('X (m)')
 ylabel('Y (m)')
-legend('Best Fit Circle', 'Target', 'Obstacles','\nablaF','Neato')
+%legend('Best Fit Circle', 'Target', 'Obstacles','\nablaF','Neato')
 
+
+plot(path(:,1), path(:,2), "k", 'linewidth', 2)
 %gradient_ascent(ascent_vec, position, heading, pub, msg);
 
-
+hold off
 end
 
 

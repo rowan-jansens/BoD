@@ -1,0 +1,14 @@
+function path_points = predict_path(dx, dy, start_pos)
+pos = start_pos';
+path_points = [];
+lambda = 0.1;
+for i = 1:1
+    path_points(end+1,:) = pos;
+    pos_x_idx = 41 + round(pos(1) * 10)
+    pos_y_idx = 41 + round(pos(2) * 10)
+    gradient = [dx(pos_x_idx, pos_y_idx), dy(pos_x_idx, pos_y_idx)]
+    pos(1) = pos(1) + -1*lambda*gradient(1);
+    pos(2) = pos(2) + -1*lambda*gradient(2);
+    
+end
+end
