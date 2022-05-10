@@ -10,7 +10,6 @@ while no_circ
     %finds a circle using RANSAC
     [circ_center, best_circ_inliers, best_circ_outliers] = ransac_circ(x,y,known_radius);
 
-
     %initializing the matricies of the best fit attributes
     best_line_inliers = [];
     best_line_outliers = [];

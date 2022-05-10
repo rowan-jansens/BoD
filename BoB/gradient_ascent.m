@@ -5,8 +5,6 @@ wheelBase = 0.235;              % meters
 % this is the scaling factor we apply to the gradient when calculating our
 % step size
 lambda = 0.003;
-
-
 angularSpeed = 0.1; %.1 % radians / second (set higher than real to help with testing)
 linearSpeed = 0.1; %.1 % meters / second
 

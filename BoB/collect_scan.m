@@ -8,4 +8,5 @@ index=find(r~=0);
 r_clean=r(index);
 theta_clean=theta(index);
 [x,y]=pol2cart(theta_clean,r_clean);
+
 end

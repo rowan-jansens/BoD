@@ -1,5 +1,4 @@
 function [best_center, best_inlier_list, best_outlier_list] = ransac_circ(x, y, known_radius)
-
 %sigma is the tolerance for what is and is not considered an inlier
 sigma = 0.02;
 
@@ -69,6 +68,5 @@ for i = 1:300
           best_inlier_list = inlier_list;
           best_outlier_list = outlier_list;
       end
-end
-
+    end
 end

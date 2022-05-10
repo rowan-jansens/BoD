@@ -61,7 +61,6 @@ hold off
 %path = predict_path(dx, dy, position, center, known_radius);
 %plot(path(:,1), path(:,2), "k", 'linewidth', 2)
 
-
 %feed the gradient vector to the ascent algorithm to update the position of
 %the robot
 gradient_ascent(ascent_vec, position, heading, pub, msg);

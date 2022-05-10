@@ -13,7 +13,6 @@ outlier_scale = 0.2;
 %make empty field
 potential = zeros(length(x_field), length(y_field));
 
-
 %loop though eveery point in the meshgrid
     for i = 1:length(X)
         for j = 1:length(Y)
